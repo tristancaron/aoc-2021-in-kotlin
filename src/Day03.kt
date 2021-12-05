@@ -36,7 +36,7 @@ fun main() {
             .map(::getDominantChar)
             .let {
                 val gamma = it.joinToString("").toInt(2)
-                val epsilon = it.map { if (it == '0') '1' else '0' }.joinToString("").toInt(2)
+                val epsilon = gamma xor ((1 shl it.count()) - 1)
                 gamma * epsilon
             }
 
